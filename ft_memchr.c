@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 18:44:21 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/08 20:39:20 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/08 19:09:20 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/08 19:25:01 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c)
-{
-	char	*occ;
+#include <stddef.h>
 
-	occ = (void *)0;
-	while (*s)
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned char	*ptr;
+
+	ptr = (unsigned char *)s;
+	while (n--)
 	{
-		if (*s++ == (char)c)
-			occ = (char *)(s - 1);
+		if (*ptr == (unsigned char)c)
+			return (ptr);
+		ptr++;
 	}
-	return (occ);
+	return (0);
 }
 
 // #include <stdio.h>
@@ -28,10 +31,15 @@ char	*ft_strrchr(const char *s, int c)
 
 // int	main(void)
 // {
-// 	char *s = "Hello World";
-// 	char c = 'o';
+// 	char	str[] = "42 is fun!!";
+// 	char	c = '2';
+// 	size_t	size = 4;
+// 	char	*ptr0;
+// 	char	*ptr1;
 
-// 	printf("%s\n", strrchr(s, c));
-// 	printf("%s\n", ft_strrchr(s, c));
+// 	ptr0 = memchr(str, c, size);
+// 	ptr1 = ft_memchr(str, c, size);
+// 	printf("%s\n", ptr0);
+// 	printf("%s\n", ptr1);
 // 	return (0);
 // }

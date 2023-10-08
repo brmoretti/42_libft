@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 18:09:14 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/06 18:28:25 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/08 20:36:32 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t i;
-	size_t j;
-	size_t try;
+	size_t	i;
+	size_t	j;
+	size_t	try;
 
 	i = 0;
 	j = 0;
