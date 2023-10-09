@@ -1,47 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 21:42:46 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/08 22:23:07 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/08 22:26:54 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/08 22:32:26 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stddef.h>
 
-char	*ft_strdup(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	char	*ptr;
-	int		i;
+	size_t	i;
 
-	i = 0;
-	while (s[i])
-		i++;
-	ptr = malloc(i + 1);
-	if (!ptr)
-		return (0);
-	i = 0;
-	while (*s)
-		ptr[i++] = *s++;
-	ptr[i] = '\0';
-	return (ptr);
+	i = -1;
+	while (s[++i])
+		;
+	return (i);
 }
 
 // #include <stdio.h>
 // #include <string.h>
 
-// int main(void)
+// int	main(void)
 // {
-// 	char	str[] = "42 is fun!!";
-// 	char	*ptr0;
-// 	char	*ptr1;
+// 	char	str[] = "";
+// 	size_t	size0;
+// 	size_t	size1;
 
-// 	ptr0 = strdup(str);
-// 	ptr1 = ft_strdup(str);
-// 	printf("strdup: %s\n", ptr0);
-// 	printf("ft_strdup: %s\n", ptr1);
+// 	size0 = strlen(str);
+// 	size1 = ft_strlen(str);
+// 	printf("strlen: %zu\n", size0);
+// 	printf("ft_strlen: %zu\n", size1);
 // 	return (0);
 // }
