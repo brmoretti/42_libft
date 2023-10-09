@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 14:02:18 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/09 08:45:27 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/09 08:20:17 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/09 08:44:12 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include <stdlib.h>
 
 static size_t	ft_strlen(const char *s)
 {
-	unsigned long	i;
+	size_t	i;
 
 	i = -1;
 	while (s[++i])
@@ -22,32 +23,32 @@ static size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	src_len;
+	size_t	len;
+	char	*joined;
+	char	*origin;
 
-	if (size > 0)
-	{
-		src_len = ft_strlen(src);
-		while (*src && size-- > 1)
-			*(dst++) = *(src++);
-		*dst = '\0';
-	}
-	return (src_len);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	joined = malloc(len + 1);
+	if (joined == NULL)
+		return (NULL);
+	origin = joined;
+	while (*s1)
+		*(joined++) = *(s1++);
+	while (*s2)
+		*(joined++) = *(s2++);
+	*joined = '\0';
+	return (origin);
 }
 
-// #include <string.h>
 // #include <stdio.h>
 
 // int	main(void)
 // {
-// 	char	src[] = "abcdefg";
-// 	//char	dest0[20];
-// 	char	dest1[20];
-// 	size_t	size;
+// 	char const	s1[] = "42 is";
+// 	char const	s2[] = "fun!!";
 
-// 	size = 4;
-// 	//printf("%d - %s\n", strlcpy(dest0, src, size), dest0);
-// 	printf("%zu - %s\n", ft_strlcpy(dest1, src, size), dest1);
+// 	printf("%s\n", ft_strjoin(s1, s2));
 // 	return (0);
 // }

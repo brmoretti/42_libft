@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:39:49 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/06 12:07:23 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/09 08:47:05 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 // 	printf("%s\n", dest1);
 // 	return (0);
 // }
-
