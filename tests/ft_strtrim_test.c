@@ -6,11 +6,13 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:05:32 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/09 15:05:55 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:10:25 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+
+char	*ft_strtrim(char const *s1, char const *set);
 
 int	main(void)
 {

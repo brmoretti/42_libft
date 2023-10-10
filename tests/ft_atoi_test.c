@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 20:46:36 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/09 19:19:27 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/09 18:08:08 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/09 19:13:13 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-void	ft_bzero(void *s, size_t n)
+int	ft_atoi(const char *nptr);
+
+int	main(void)
 {
-	char	*ptr;
+	char str[] = "  \n\t42 is fun!!";
+	int ptr0;
+	int ptr1;
 
-	ptr = (char *)s;
-	while (n-- != 0)
-		*(ptr++) = '\0';
+	ptr0 = atoi(str);
+	ptr1 = ft_atoi(str);
+	printf("%d\n", ptr0);
+	printf("%d\n", ptr1);
+	return (0);
 }
