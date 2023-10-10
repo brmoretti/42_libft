@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:20:44 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/09 23:20:59 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/10 09:44:16 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static char	*ft_copy_split(char *dest, char *src, char c)
 	return (src);
 }
 
-static char	ft_allocation_failed(char **tab, unsigned int n)
+static char	ft_free_alloc(char **tab, unsigned int n)
 {
 	while (n)
 		free (tab[--n]);
@@ -84,18 +84,19 @@ char	**ft_split(char const *s, char c)
 	{
 		tab[i] = ft_split_malloc(mover, c);
 		if (tab[i] == NULL)
-			return (ft_allocation_failed(tab, i));
+			return (ft_free_alloc(tab, i));
 		mover = ft_copy_split(tab[i], mover, c);
 	}
 	return (tab);
 }
 
-// int	main(void)
-// {
-// 	char const	str[] = "42 is fun!!";
-// 	char		c = " ";
-// 	char		**tab;
+int	main(void)
+{
+	char const	str[] = "42 is fun!!";
+	char		c = ' ';
+	char		**tab;
 
-// 	tab = ft_split(str, c);
-// 	return (0);
-// }
+	tab = ft_split(str, c);
+	ft_free_alloc(tab, 3);
+	return (0);
+}
