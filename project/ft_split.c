@@ -6,23 +6,32 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:20:44 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/10 09:44:16 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:33:43 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include <stdlib.h>
 
-static unsigned int	ft_count_c(char const *s, char c)
+static unsigned int	ft_count_tokens(char const *s, char c)
 {
 	unsigned int	count;
 
-	count = 0;
+	if (!*s)
+		return (0);
+	count = 1;
+	while (*s == c)
+		s++;
 	while (*s)
 	{
 		if (*(s++) == c)
+		{
 			count++;
+			while (*s == c)
+				s++;
+		}
 	}
+	if (*(s - 1) == c && count >= 1)
+		count--;
 	return (count);
 }
 
@@ -31,6 +40,8 @@ static char	*ft_split_malloc(char *start, char c)
 	unsigned int	i;
 	char			*str;
 
+	while (*start == c)
+		start++;
 	i = -1;
 	while (start[++i])
 	{
@@ -50,6 +61,8 @@ static char	*ft_split_malloc(char *start, char c)
 
 static char	*ft_copy_split(char *dest, char *src, char c)
 {
+	while (*src && *src == c)
+		src++;
 	while (*src && *src != c)
 		*(dest++) = *(src++);
 	*dest = '\0';
@@ -58,45 +71,49 @@ static char	*ft_copy_split(char *dest, char *src, char c)
 	return (src);
 }
 
-static char	ft_free_alloc(char **tab, unsigned int n)
+static void	ft_free_alloc(char **tab, unsigned int n)
 {
 	while (n)
 		free (tab[--n]);
 	free (tab);
-	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t			len;
 	char			**tab;
 	char			*mover;
 	unsigned int	i;
-	unsigned int	n_strings;
+	unsigned int	n_tokens;
 
-	n_strings = ft_count_c(s, c) + 1;
-	tab = malloc((size_t)n_strings * sizeof(char *));
-	if (tab == NULL)
+	n_tokens = ft_count_tokens(s, c);
+	if (!s || !n_tokens
+	|| !(tab = malloc((size_t)n_tokens * sizeof(char *))))
 		return (NULL);
 	mover = (char *)s;
 	i = -1;
-	while (++i < n_strings)
+	while (++i < n_tokens)
 	{
 		tab[i] = ft_split_malloc(mover, c);
 		if (tab[i] == NULL)
-			return (ft_free_alloc(tab, i));
+		{
+			ft_free_alloc(tab, i);
+			return (NULL);
+		}
 		mover = ft_copy_split(tab[i], mover, c);
 	}
 	return (tab);
 }
 
-int	main(void)
-{
-	char const	str[] = "42 is fun!!";
-	char		c = ' ';
-	char		**tab;
+// #include <stdio.h>
 
-	tab = ft_split(str, c);
-	ft_free_alloc(tab, 3);
-	return (0);
-}
+// int	main(void)
+// {
+// 	char const	str[] = "42 is fun!!";
+// 	char		c = ' ';
+// 	char		**tab;
+
+// 	if (!(tab = ft_split(str, c)))
+// 		return (1);
+// 	ft_free_alloc(tab, 3);
+// 	return (0);
+// }
