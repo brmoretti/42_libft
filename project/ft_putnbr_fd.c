@@ -6,23 +6,11 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 20:53:59 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/12 22:15:51 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:35:55 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-static void	ft_putstr_fd(char *s, int fd)
-{
-	unsigned int	i;
-
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
-		i++;
-	write(fd, s, i);
-}
+#include "libc.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

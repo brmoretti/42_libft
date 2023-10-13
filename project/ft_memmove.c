@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:08:19 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/06 13:57:13 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:32:47 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char	*from;
 	unsigned char	*to;
 
+	if (!dest || ! src)
+		return (dest);
 	from = (unsigned char *)src;
 	to = (unsigned char *)dest;
 	if (to < from)

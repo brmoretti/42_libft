@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:39:49 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/09 08:47:05 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:31:36 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char	*dest_cpy;
 
+	if (!dest || !src)
+		return (dest);
 	dest_cpy = (unsigned char *)dest;
 	while (n-- > 0)
 		*(dest_cpy++) = *((unsigned char *)src++);

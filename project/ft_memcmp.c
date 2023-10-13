@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 19:25:59 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/08 20:38:38 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:10:29 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,12 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	unsigned char	*ptr1;
 	unsigned char	*ptr2;
 
-	if (n == 0)
+	if ((!s1 && !s2) || n == 0)
 		return (0);
+	else if (!s1)
+		return (-(*(unsigned char *)s2));
+	else if (!s2)
+		return (*(unsigned char *)s1);
 	ptr1 = (unsigned char *)s1;
 	ptr2 = (unsigned char *)s2;
 	while (--n)

@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 18:35:18 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/13 12:39:45 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/13 10:31:55 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/13 11:58:39 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libc.h"
 
-char	*ft_strchr(const char *s, int c)
+t_list	*ft_lstnew(void *content)
 {
-	if (!s)
+	t_list	*element;
+
+	element = malloc(sizeof(t_list));
+	if (element == NULL)
 		return (NULL);
-	while (*s)
-		if (*s++ == (char)c)
-			return ((char *)--s);
-	return (NULL);
+	element->content = content;
+	element->next = NULL;
+	return (element);
 }
 
 // #include <stdio.h>
-// #include <string.h>
 
 // int	main(void)
 // {
-// 	char *s = "Hello World";
-// 	char c = 'W';
+// 	int		n;
+// 	t_list	*el;
 
-// 	printf("%s\n", strchr(s, c));
-// 	printf("%s\n", ft_strchr(s, c));
+// 	n = 42;
+// 	el = ft_lstnew(&n);
+// 	printf("%d\n", *(int *)el->content);
 // 	return (0);
 // }

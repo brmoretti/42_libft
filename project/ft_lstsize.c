@@ -1,43 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 08:20:17 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/13 12:47:15 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/13 11:19:20 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/13 14:29:57 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	len;
-	char	*joined;
-	char	*origin;
+	int		i;
+	t_list	*el;
 
-	len = ft_strlen(s1) + ft_strlen(s2);
-	joined = malloc(len + 1);
-	if (joined == NULL)
-		return (NULL);
-	origin = joined;
-	while (*s1)
-		*(joined++) = *(s1++);
-	while (*s2)
-		*(joined++) = *(s2++);
-	*joined = '\0';
-	return (origin);
+	if (!lst)
+		return (0);
+	i = 1;
+	el = lst->next;
+	while (el)
+	{
+		el = el->next;
+		i++;
+	}
+	return (i);
 }
 
 // #include <stdio.h>
 
 // int	main(void)
 // {
-// 	char const	s1[] = "42 is";
-// 	char const	s2[] = "fun!!";
+// 	t_list	*el0;
+// 	t_list	*el1;
+// 	t_list	*el2;
+// 	t_list	*el3;
 
-// 	printf("%s\n", ft_strjoin(s1, s2));
+// 	el0 = ft_lstnew("42");
+// 	el1 = ft_lstnew("43");
+// 	el2 = ft_lstnew("44");
+// 	el3 = ft_lstnew("45");
+// 	ft_lstadd_front(&el3, el2);
+// 	ft_lstadd_front(&el2, el1);
+// 	ft_lstadd_front(&el1, el0);
+// 	printf("%d\n", ft_lstsize(el0));
 // 	return (0);
 // }

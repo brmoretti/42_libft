@@ -6,21 +6,11 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:02:18 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/12 22:22:05 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:47:52 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-static size_t	ft_strlen(const char *s)
-{
-	unsigned long	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "libc.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {

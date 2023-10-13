@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 20:08:46 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/08 20:40:05 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/13 14:18:34 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 	size_t	k;
 
+	if (!big || !little || !len)
+		return (NULL);
 	i = 0;
 	if (!*little)
 		return ((char *)big);
@@ -34,7 +36,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 
 // #include <stdio.h>

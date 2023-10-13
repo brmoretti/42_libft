@@ -6,21 +6,11 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:25:57 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/12 22:22:43 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:48:24 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-static size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "libc.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

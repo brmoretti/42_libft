@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 08:58:22 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/09 15:08:28 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/13 14:29:28 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char			*str;
 	unsigned int	i;
 
+	if (!s1 || !set)
+		return (s1);
 	start = ft_while_in_set(s1, set, 1);
 	mover = start;
 	while (*mover)

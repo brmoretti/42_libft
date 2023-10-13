@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 19:09:20 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/08 19:25:01 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:02:20 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*ptr;
 
+	if (!s)
+		return ;
 	ptr = (unsigned char *)s;
 	while (n--)
 	{

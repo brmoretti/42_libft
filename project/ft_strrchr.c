@@ -6,16 +6,18 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 18:44:21 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/08 20:39:20 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/13 14:30:08 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
 
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*occ;
 
-	occ = (void *)0;
-	while (*s)
+	occ = NULL;
+	while (s && *s)
 	{
 		if (*s++ == (char)c)
 			occ = (char *)(s - 1);
