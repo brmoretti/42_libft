@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 22:26:54 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/12 22:22:23 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/12 18:02:51 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/12 18:28:35 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-size_t	ft_strlen(const char *s)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	i;
+	unsigned int	i;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	if (!s || !f)
+		return ;
+	i = -1;
+	while (s[++i])
+		f(i, &s[i]);
 }
 
 // #include <stdio.h>
 // #include <string.h>
 
+// static void	ft_test(unsigned int i, char *c)
+// {
+// 	*c += (char)i;
+// }
+
 // int	main(void)
 // {
-// 	char	str[] = "";
-// 	size_t	size0;
-// 	size_t	size1;
+// 	char	str[] = "42 is fun!!";
+// 	char	*str0;
 
-// 	size0 = strlen(str);
-// 	size1 = ft_strlen(str);
-// 	printf("strlen: %zu\n", size0);
-// 	printf("ft_strlen: %zu\n", size1);
+// 	str0 = strdup(str);
+// 	ft_striteri(str0, &ft_test);
+// 	printf("%s\n", str0);
 // 	return (0);
 // }

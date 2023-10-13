@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 08:20:17 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/09 08:44:12 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/12 22:21:41 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
-	i = -1;
-	while (s[++i])
-		;
+	i = 0;
+	while (s[i])
+		i++;
 	return (i);
 }
 

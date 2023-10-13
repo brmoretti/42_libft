@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:20:44 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/12 17:33:43 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:43:02 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,10 @@ char	**ft_split(char const *s, char c)
 	unsigned int	n_tokens;
 
 	n_tokens = ft_count_tokens(s, c);
-	if (!s || !n_tokens
-	|| !(tab = malloc((size_t)n_tokens * sizeof(char *))))
+	if (!s || !n_tokens)
+		return (NULL);
+	tab = malloc((size_t)n_tokens * sizeof(char *));
+	if (!tab)
 		return (NULL);
 	mover = (char *)s;
 	i = -1;
@@ -108,7 +110,7 @@ char	**ft_split(char const *s, char c)
 
 // int	main(void)
 // {
-// 	char const	str[] = "42 is fun!!";
+// 	char const	str[] = "";
 // 	char		c = ' ';
 // 	char		**tab;
 

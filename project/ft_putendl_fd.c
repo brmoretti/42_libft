@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 22:26:54 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/12 22:22:23 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/12 18:40:56 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/12 18:57:39 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <unistd.h>
 
-size_t	ft_strlen(const char *s)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	i;
+	unsigned int	i;
 
+	if (!s)
+		return ;
 	i = 0;
 	while (s[i])
 		i++;
-	return (i);
+	write(fd, s, i);
+	write(fd, "\n", 1);
 }
-
-// #include <stdio.h>
-// #include <string.h>
 
 // int	main(void)
 // {
-// 	char	str[] = "";
-// 	size_t	size0;
-// 	size_t	size1;
-
-// 	size0 = strlen(str);
-// 	size1 = ft_strlen(str);
-// 	printf("strlen: %zu\n", size0);
-// 	printf("ft_strlen: %zu\n", size1);
+// 	ft_putendl_fd("aaa", 1);
 // 	return (0);
 // }
