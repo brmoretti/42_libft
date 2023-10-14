@@ -6,11 +6,11 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 08:20:17 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/13 12:47:15 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/14 15:48:26 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

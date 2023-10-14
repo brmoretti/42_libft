@@ -17,7 +17,7 @@ OBJS_BONUS = $(SRC_BONUS:.c=.o)
 
 FLAGS = -Wall -Werror -Wextra
 
-HEADER = libc.h
+HEADER = libft.h
 
 LIB = libft.a
 
