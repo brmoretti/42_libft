@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 17:44:21 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/13 18:28:03 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/13 22:22:44 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*el;
+	t_list	*next_el;
 
-	if (!lst || del)
+	if (!*lst)
 		return ;
 	el = *lst;
 	while (el)
 	{
+		next_el = el->next;
 		ft_lstdelone(el, del);
-		el = el->next;
+		el = next_el;
 	}
-	lst = NULL;
+	*lst = NULL;
 }
 
 #include <stdlib.h>
@@ -40,21 +42,27 @@ int	main(void)
 	t_list	*el0;
 	t_list	*el1;
 	t_list	*el2;
+	int		*ptr0;
+	int		*ptr1;
+	int		*ptr2;
 
-	el0->content = (int *)malloc(sizeof(int));
-	el1->content = (int *)malloc(sizeof(int));
-	el2->content = (int *)malloc(sizeof(int));
-	// *(int *)el0->content = 42;
-	// *(int *)el1->content = 43;
-	// *(int *)el2->content = 44;
-	// ft_lstadd_back(&el0, el1);
-	// ft_lstadd_back(&el0, el2);
-	// printf("%d\n", *(int *)(el0)->content);
-	// printf("%d\n", *(int *)(el1)->content);
-	// printf("%d\n", *(int *)(el2)->content);
-	// ft_lstclear(&el0, &ft_free);
-	// printf("%d\n", *(int *)(el0)->content);
-	// printf("%d\n", *(int *)(el1)->content);
-	// printf("%d\n", *(int *)(el2)->content);
+	ptr0 = malloc(sizeof(int));
+	ptr1 = malloc(sizeof(int));
+	ptr2 = malloc(sizeof(int));
+	*ptr0 = 42;
+	*ptr1 = 43;
+	*ptr2 = 44;
+	el0 = ft_lstnew(ptr0);
+	el1 = ft_lstnew(ptr1);
+	el2 = ft_lstnew(ptr2);
+	ft_lstadd_back(&el0, el1);
+	ft_lstadd_back(&el0, el2);
+	printf("%d\n", *(int *)(el0)->content);
+	printf("%d\n", *(int *)(el1)->content);
+	printf("%d\n", *(int *)(el2)->content);
+	ft_lstclear(&el0, &ft_free);
+	printf("%d\n", *(int *)(el0)->content);
+	printf("%d\n", *(int *)(el1)->content);
+	printf("%d\n", *(int *)(el2)->content);
 	return (0);
 }

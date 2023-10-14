@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 10:31:55 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/13 11:58:39 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/13 21:19:15 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*element;
+	t_list	*el;
 
-	element = malloc(sizeof(t_list));
-	if (element == NULL)
+	el = malloc(sizeof(t_list));
+	if (el == NULL)
 		return (NULL);
-	element->content = content;
-	element->next = NULL;
-	return (element);
+	el->content = content;
+	el->next = NULL;
+	return (el);
 }
 
 // #include <stdio.h>
