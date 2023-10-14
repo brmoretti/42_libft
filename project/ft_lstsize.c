@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 11:19:20 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/13 21:54:16 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/14 11:26:39 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_lstsize(t_list *lst)
 
 	if (!lst)
 		return (0);
-	i = 1;
-	el = lst->next;
+	i = 0;
+	el = lst;
 	while (el)
 	{
 		el = el->next;

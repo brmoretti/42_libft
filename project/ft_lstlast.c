@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:56:08 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/13 16:08:01 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/14 11:28:44 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*el;
-
 	if (!lst)
 		return (NULL);
-	el = lst;
-	while (el->next)
-		el = el->next;
-	return (el);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }
 
 // #include <stdio.h>
