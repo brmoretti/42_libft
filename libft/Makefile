@@ -30,7 +30,7 @@ bonus: $(OBJS) $(OBJS_BONUS) $(HEADER)
 	ar rcs $(LIB) $^
 
 %.o: %.c
-	cc -c $< -o $@
+	cc -c $< -o $@ $(FLAGS)
 
 .PHONY: clean
 clean:

@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 18:44:21 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/13 14:30:08 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/06 18:35:18 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/15 12:07:45 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*occ;
-
-	occ = NULL;
-	while (s && *s)
-	{
+	if (!s)
+		return (NULL);
+	while (*s)
 		if (*s++ == (char)c)
-			occ = (char *)(s - 1);
-	}
-	return (occ);
+			return ((char *)--s);
+	if (c == '\0')
+		return ((char *)s);
+	return (NULL);
 }
 
 // #include <stdio.h>
@@ -30,10 +29,10 @@ char	*ft_strrchr(const char *s, int c)
 
 // int	main(void)
 // {
-// 	char *s = "Hello World";
-// 	char c = 'o';
+// 	char *s = "";
+// 	char c = '\0';
 
-// 	printf("%s\n", strrchr(s, c));
-// 	printf("%s\n", ft_strrchr(s, c));
+// 	printf("%s\n", strchr(s, c));
+// 	printf("%s\n", ft_strchr(s, c));
 // 	return (0);
 // }

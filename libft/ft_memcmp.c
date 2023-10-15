@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 19:25:59 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/13 12:10:29 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/14 18:38:36 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		return (*(unsigned char *)s1);
 	ptr1 = (unsigned char *)s1;
 	ptr2 = (unsigned char *)s2;
-	while (--n)
+	while (n--)
 	{
 		if (*(ptr1++) != *(ptr2++))
 			return (*(ptr1 - 1) - *(ptr2 - 1));
@@ -38,15 +38,15 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 // int	main(void)
 // {
-// 	char	str1[] = "42 is fun!!";
-// 	char	str2[] = "42 is fun!!";
-// 	size_t	size = 4;
-// 	int		ptr0;
-// 	int		ptr1;
+// 	char	str1[] = "44 is fun";
+// 	char	str2[] = "42 is fun";
+// 	size_t	size = 2;
+// 	int		n0;
+// 	int		n1;
 
-// 	ptr0 = memcmp(str1, str2, size);
-// 	ptr1 = ft_memcmp(str1, str2, size);
-// 	printf("%d\n", ptr0);
-// 	printf("%d\n", ptr1);
+// 	n0 = memcmp(str1, str2, size);
+// 	n1 = ft_memcmp(str1, str2, size);
+// 	printf("%d\n", n0);
+// 	printf("%d\n", n1);
 // 	return (0);
 // }

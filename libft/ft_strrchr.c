@@ -1,28 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 09:39:41 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/06 09:51:09 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/06 18:44:21 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/15 12:21:26 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+#include <stddef.h>
+
+char	*ft_strrchr(const char *s, int c)
 {
-	if (0 <= c && c <= 127)
-		return (1);
-	return (0);
+	char	*occ;
+
+	occ = NULL;
+	if (!s)
+		return (NULL);
+	while (*s)
+	{
+		if (*s++ == (char)c)
+			occ = (char *)(s - 1);
+	}
+	if (!c)
+		occ = (char *)(s);
+	return (occ);
 }
 
-// #include <ctype.h>
 // #include <stdio.h>
+// #include <string.h>
 
-// int	main(int argc, char *argv[])
+// int	main(void)
 // {
-// 	printf("%d\n", isascii((int)argv[1][0]));
-// 	printf("%d\n", ft_isascii((int)argv[1][0]));
+// 	char *s = "";
+// 	char c = '\0';
+
+// 	printf("%s\n", strrchr(s, c));
+// 	printf("%s\n", ft_strrchr(s, c));
 // 	return (0);
 // }

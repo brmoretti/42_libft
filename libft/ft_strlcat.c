@@ -6,47 +6,48 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 18:09:14 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/08 20:36:32 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/15 13:24:33 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
+
+static size_t	ft_strnlen(const char *s, size_t maxlen)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] && i < maxlen)
+		i++;
+	return (i);
+}
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	i;
-	size_t	j;
-	size_t	try;
+	size_t	len;
 
-	i = 0;
-	j = 0;
-	try = 0;
-	while (dst[i] != '\0')
-		i++;
-	while (src[try] != '\0')
-		try++;
-	if (size <= i)
-		try += size;
-	else
-		try += i;
-	while (src[j] != '\0' && i + 1 < size)
-		dst[i++] = src[j++];
-	dst[i] = '\0';
-	return (try);
+	len = ft_strnlen(dst, size);
+	if (len == size)
+		return (len + ft_strlen(src));
+	return (len + ft_strlcpy(dst + len, src, size - len));
 }
 
 // #include <stdio.h>
-// #include <string.h>
 
 // int	main(void)
 // {
-// 	char dst0[20] = "Hello";
-// 	char src0[20] = "World";
-// 	char dst1[20] = "Hello";
-// 	char src1[20] = "World";
-// 	size_t size = 20;
+// 	char	*dest;
+// 	size_t	ret;
 
-// 	printf("%zu - %s\n", strlcat(dst0, src0, size), dst0);
-// 	printf("%zu - %s\n", ft_strlcat(dst1, src1, size), dst1);
-// 	return (0);
+// 	dest = (char *)malloc(sizeof(*dest) * 15);
+// 	memset(dest, 0, 15);
+// 	memset(dest, 'r', 6);
+// 	dest[14] = 'a';
+// 	ret = strlcat(dest, "lorem ipsum dolor sit amet", 15);
+// 	printf("%zu - %s\n", ret, dest);
+// 	memset(dest, 0, 15);
+// 	memset(dest, 'r', 6);
+// 	dest[14] = 'a';
+// 	ret = ft_strlcat(dest, "lorem ipsum dolor sit amet", 15);
+// 	printf("%zu - %s\n", ret, dest);
 // }

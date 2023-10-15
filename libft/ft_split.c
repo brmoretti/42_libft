@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:20:44 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/12 17:43:02 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/15 13:35:25 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static unsigned int	ft_count_tokens(char const *s, char c)
 {
 	unsigned int	count;
 
-	if (!*s)
-		return (0);
 	count = 1;
+	if (!*s)
+		return (1);
 	while (*s == c)
 		s++;
 	while (*s)
@@ -86,9 +86,10 @@ char	**ft_split(char const *s, char c)
 	unsigned int	n_tokens;
 
 	n_tokens = ft_count_tokens(s, c);
-	if (!s || !n_tokens)
-		return (NULL);
-	tab = malloc((size_t)n_tokens * sizeof(char *));
+	if (!n_tokens)
+		tab = malloc(sizeof(char *));
+	else
+		tab = malloc((size_t)n_tokens * sizeof(char *));
 	if (!tab)
 		return (NULL);
 	mover = (char *)s;
