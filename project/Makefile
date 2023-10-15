@@ -1,3 +1,9 @@
+NAME = libft.a
+
+LIB = libft.a
+
+HEADER = libft.h
+
 SRC_FILES = \
  ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
  ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c \
@@ -17,28 +23,30 @@ OBJS_BONUS = $(SRC_BONUS:.c=.o)
 
 FLAGS = -Wall -Werror -Wextra
 
-HEADER = libft.h
-
-LIB = libft.a
-
 .PHONY: all
 all: $(OBJS) $(HEADER)
-	ar rcs $(LIB) $^
+	@ ar rcs $(LIB) $^
+	@ echo $(LIB) "successfully generated"
+
+$(NAME) : all
 
 .PHONY: bonus
 bonus: $(OBJS) $(OBJS_BONUS) $(HEADER)
-	ar rcs $(LIB) $^
+	@ ar rcs $(LIB) $^
+	@ echo $(LIB) "successfully generated including bonus functions"
 
 %.o: %.c
-	cc -c $< -o $@ $(FLAGS)
+	@ echo "$< -> $@"
+	@ cc -c $< -o $@ $(FLAGS)
 
 .PHONY: clean
 clean:
-	rm -f *.o
+	@ rm -f *.o
+	@ echo "cleaned"
 
 .PHONY: fclean
 fclean: clean
-	rm -f $(LIB)
+	@ rm -f $(LIB)
 
 .PHONY: re
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 20:08:46 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/13 14:18:34 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/15 17:23:23 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 	size_t	k;
 
-	if (!big || !little || !len)
-		return (NULL);
 	i = 0;
 	if (!*little)
 		return ((char *)big);
@@ -42,15 +40,41 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 // #include <stdio.h>
 // #include <string.h>
 
+// char *
+// strnstr(s, find, slen)
+// 	const char *s;
+// 	const char *find;
+// 	size_t slen;
+// {
+// 	char c, sc;
+// 	size_t len;
+
+// 	if ((c = *find++) != '\0') {
+// 		len = strlen(find);
+// 		do {
+// 			do {
+// 				if ((sc = *s++) == '\0' || slen-- < 1)
+// 					return (NULL);
+// 			} while (sc != c);
+// 			if (len > slen)
+// 				return (NULL);
+// 		} while (strncmp(s, find, len) != 0);
+// 		s--;
+// 	}
+// 	return ((char *)s);
+// }
+
 // int main(void)
 // {
-// 	char big[] = "42 is fun!!";
-// 	char little[] = "is";
-// 	size_t len = 4;
+// 	char *big;
+// 	char little[] = "";
+// 	char *empty = (char*)"";
+// 	size_t len = 0;
 // 	char *ptr0;
 // 	char *ptr1;
 
-// 	//ptr0 = strnstr(big, little, len);
+// 	big = empty;
+// 	ptr0 = strnstr(big, little, len);
 // 	ptr1 = ft_strnstr(big, little, len);
 // 	printf("%s\n", ptr0);
 // 	printf("%s\n", ptr1);

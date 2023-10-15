@@ -1,38 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 10:55:27 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/14 15:48:26 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/13 16:29:10 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/15 14:21:28 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (!lst || !*lst || !new)
+	t_list	*el;
+
+	if (!new)
 		return ;
-	new->next = *lst;
-	*lst = new;
+	else if (!*lst)
+		*lst = new;
+	else
+	{
+		el = *lst;
+		while (el->next)
+			el = el->next;
+		el->next = new;
+	}
 }
 
 // #include <stdio.h>
 
 // int	main(void)
 // {
-// 	t_list	**lst;
 // 	t_list	*el0;
 // 	t_list	*el1;
+// 	t_list	*el2;
+// 	t_list	*el3;
 
 // 	el0 = ft_lstnew("42");
-// 	lst = &el0;
 // 	el1 = ft_lstnew("43");
-// 	ft_lstadd_front(lst, el1);
-// 	printf("%s == %s\n", (char *)(*lst)->content, (char *)el1->content);
-// 	printf("%s == 42\n", (char *)el0->next->content);
+// 	el2 = ft_lstnew("44");
+// 	el3 = ft_lstnew("45");
+// 	ft_lstadd_back(&el3, el2);
+// 	ft_lstadd_back(&el2, el1);
+// 	ft_lstadd_back(&el1, el0);
+// 	printf("%s\n", (char *)ft_lstlast(el0)->content);
 // 	return (0);
 // }

@@ -6,11 +6,11 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:20:44 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/15 13:35:25 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/15 15:54:29 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static unsigned int	ft_count_tokens(char const *s, char c)
 {
@@ -18,7 +18,7 @@ static unsigned int	ft_count_tokens(char const *s, char c)
 
 	count = 1;
 	if (!*s)
-		return (1);
+		return (0);
 	while (*s == c)
 		s++;
 	while (*s)
@@ -87,7 +87,7 @@ char	**ft_split(char const *s, char c)
 
 	n_tokens = ft_count_tokens(s, c);
 	if (!n_tokens)
-		tab = malloc(sizeof(char *));
+		tab = ft_calloc(1, sizeof(char *));
 	else
 		tab = malloc((size_t)n_tokens * sizeof(char *));
 	if (!tab)
@@ -112,11 +112,10 @@ char	**ft_split(char const *s, char c)
 // int	main(void)
 // {
 // 	char const	str[] = "";
-// 	char		c = ' ';
+// 	char		c = 'z';
 // 	char		**tab;
 
 // 	if (!(tab = ft_split(str, c)))
 // 		return (1);
-// 	ft_free_alloc(tab, 3);
 // 	return (0);
 // }
