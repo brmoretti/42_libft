@@ -6,22 +6,15 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 18:40:56 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/12 18:57:39 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:19:22 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	unsigned int	i;
-
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
-		i++;
-	write(fd, s, i);
+	ft_putstr_fd(s, fd);
 	write(fd, "\n", 1);
 }
 

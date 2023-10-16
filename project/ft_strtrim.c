@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 08:58:22 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/14 14:47:44 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/16 15:30:57 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,21 @@ static char	*ft_while_in_set(char const *ptr_init, char const *set, int dir)
 	char	*ptr;
 
 	ptr = (char *)ptr_init;
-	while (ft_is_in(*ptr, set))
+	if (dir == -1 && *ptr)
+	{
+		while (*ptr)
+			ptr++;
+		ptr--;
+	}
+	while (ptr >= (char *)ptr_init && ft_is_in(*ptr, set))
 		ptr += dir;
+	if (ptr < (char *)ptr_init)
+		return ((char *)ptr_init);
 	return (ptr);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char			*mover;
 	char			*start;
 	char			*end;
 	char			*str;
@@ -41,11 +48,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1 || !set)
 		return (NULL);
 	start = ft_while_in_set(s1, set, 1);
-	mover = start;
-	while (*mover)
-		mover++;
-	end = ft_while_in_set(--mover, set, -1);
-	if (end <= start)
+	end = ft_while_in_set(start, set, -1);
+	if (end == start && !*start)
 		str = malloc(1);
 	else
 		str = malloc((size_t)(end - start) + 2);
@@ -57,3 +61,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str[i] = '\0';
 	return (str);
 }
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	char	*s;
+
+// 	s = ft_strtrim("abcdba", "acb");
+// 	printf("%s\n", s);
+// 	free (s);
+// 	return (0);
+// }

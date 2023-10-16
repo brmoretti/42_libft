@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_bkp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:20:44 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/16 18:29:23 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:12:47 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,11 @@ static char	*ft_copy_split(char *dest, char *src, char c)
 	return (src);
 }
 
-static char	**ft_clear(char **tab)
+static void	ft_free_alloc(char **tab, unsigned int n)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (tab[i])
-		free (tab[i++]);
+	while (n)
+		free (tab[--n]);
 	free (tab);
-	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -90,7 +86,10 @@ char	**ft_split(char const *s, char c)
 	unsigned int	n_tokens;
 
 	n_tokens = ft_count_tokens(s, c);
-	tab = ft_calloc((size_t)n_tokens + 1, sizeof(char *));
+	if (!n_tokens)
+		tab = ft_calloc(1, sizeof(char *));
+	else
+		tab = ft_calloc((size_t)n_tokens + 1, sizeof(char *));
 	if (!tab)
 		return (NULL);
 	mover = (char *)s;
@@ -99,7 +98,10 @@ char	**ft_split(char const *s, char c)
 	{
 		tab[i] = ft_split_malloc(mover, c);
 		if (tab[i] == NULL)
-			return (ft_clear(tab));
+		{
+			ft_free_alloc(tab, i);
+			return (NULL);
+		}
 		mover = ft_copy_split(tab[i], mover, c);
 	}
 	return (tab);
