@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 20:41:42 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/15 12:04:18 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/16 12:04:38 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (!s1 || !s2 || n == 0)
+	if (!n)
 		return (0);
 	while ((*s1 || *s2) && (n-- > 0))
 	{

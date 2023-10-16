@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 18:44:21 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/15 12:21:26 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/16 13:12:34 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@ char	*ft_strrchr(const char *s, int c)
 	char	*occ;
 
 	occ = NULL;
-	if (!s)
-		return (NULL);
 	while (*s)
 	{
-		if (*s++ == (char)c)
+		if (*s++ == (unsigned char)c)
 			occ = (char *)(s - 1);
 	}
-	if (!c)
+	if (!(unsigned char)c)
 		occ = (char *)(s);
 	return (occ);
 }

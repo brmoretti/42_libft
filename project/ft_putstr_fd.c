@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 18:34:31 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/12 18:57:44 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:52:33 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	ft_putstr_fd(char *s, int fd)
 
 // int	main(void)
 // {
-// 	ft_putstr_fd("aaa", 1);
+// 	ft_putstr_fd("aaa", -1);
 // 	return (0);
 // }
