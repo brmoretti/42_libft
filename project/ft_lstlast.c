@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:56:08 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/14 15:48:26 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/17 15:29:32 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
+	while (lst && lst->next)
 		lst = lst->next;
 	return (lst);
 }
@@ -38,5 +36,23 @@ t_list	*ft_lstlast(t_list *lst)
 // 	ft_lstadd_front(&el2, el1);
 // 	ft_lstadd_front(&el1, el0);
 // 	printf("%s\n", (char *)ft_lstlast(el0)->content);
+// 	return (0);
+// }
+
+// #include <stdio.h>
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	t_list	*l;
+// 	t_list	*expected;
+// 	t_list	*actual;
+
+// 	l = ft_lstnew(strdup("1"));
+// 	l->next = ft_lstnew(strdup("2"));
+// 	l->next->next = ft_lstnew(strdup("3"));
+// 	expected = l->next->next;
+// 	actual = ft_lstlast(l);
+// 	printf("actual: %p, expected: %p\n", actual, expected);
 // 	return (0);
 // }

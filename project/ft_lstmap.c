@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:48:52 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/15 15:29:17 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/17 15:26:58 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,32 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 // 		printf("%s\n", (char *)list->content);
 // 		list = list->next;
 // 	}
+// 	return (0);
+// }
+
+// #include <string.h>
+// #include <stdio.h>
+
+// void *		lstmap_f(void *content) {
+// 	(void)content;
+// 	return ("OK !");
+// }
+
+// void			lstdel_f(void *lst) {
+// 	(void)lst;
+// }
+
+// int	main(void)
+// {
+// 	t_list *l = ft_lstnew(strdup(" 1 2 3 "));
+// 	t_list *ret;
+
+// 	l->next = ft_lstnew(strdup("ss"));
+// 	l->next->next = ft_lstnew(strdup("-_-"));
+// 	ret = ft_lstmap(l, lstmap_f, lstdel_f);
+// 	if (!strcmp(ret->content, "OK !") && !strcmp(ret->next->content, "OK !") && !strcmp(ret->next->next->content, "OK !") && !strcmp(l->content, " 1 2 3 ") && !strcmp(l->next->content, "ss") && !strcmp(l->next->next->content, "-_-"))
+// 		printf("OK!");
+// 	else
+// 		printf("NOK!");
 // 	return (0);
 // }

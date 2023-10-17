@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 17:44:21 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/14 15:48:26 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/17 15:12:57 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,39 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 // 	printf("%d\n", *(int *)(el0)->content);
 // 	printf("%d\n", *(int *)(el1)->content);
 // 	printf("%d\n", *(int *)(el2)->content);
+// 	return (0);
+// }
+
+// #include <stdio.h>
+// #include <string.h>
+// #include <stdlib.h>
+
+// void	lstdelone_f(void *d)
+// {
+// 	free(d);
+// }
+
+// int				__delNum = 0;
+// void			lstdel_f(void *lst) {
+// 	(void)lst;
+// 	__delNum++;
+// }
+
+// int	main(void)
+// {
+// 	char *content = "hello !";
+
+// 	t_list	*list = malloc(sizeof(t_list));
+// 	bzero(list, sizeof(t_list));
+// 	list->next = malloc(sizeof(t_list));
+// 	bzero(list->next, sizeof(t_list));
+// 	list->content = content;
+// 	list->next->content = content + 2;
+// 	ft_lstclear(&list, lstdel_f);
+// 	write(2, "", 1);
+// 	if (__delNum == 2)
+// 		printf("OK");
+// 	else
+// 		printf("NOK");
 // 	return (0);
 // }

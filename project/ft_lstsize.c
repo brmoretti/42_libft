@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 11:19:20 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/14 15:48:26 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/17 15:30:01 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,11 @@
 int	ft_lstsize(t_list *lst)
 {
 	int		i;
-	t_list	*el;
 
-	if (!lst)
-		return (0);
 	i = 0;
-	el = lst;
-	while (el)
+	while (lst)
 	{
-		el = el->next;
+		lst = lst->next;
 		i++;
 	}
 	return (i);
@@ -46,5 +42,22 @@ int	ft_lstsize(t_list *lst)
 // 	ft_lstadd_front(&el2, el1);
 // 	ft_lstadd_front(&el1, el0);
 // 	printf("%d\n", ft_lstsize(el0));
+// 	return (0);
+// // }
+
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	t_list	*l;
+// 	int	actual;
+// 	int	expected;
+
+// 	l = ft_lstnew(strdup("1"));
+// 	l->next = ft_lstnew(strdup("2"));
+// 	l->next->next = ft_lstnew(strdup("3"));
+// 	expected = 3;
+// 	actual = ft_lstsize(l);
+// 	printf("actual: %d, expected: %d\n", actual, expected);
 // 	return (0);
 // }

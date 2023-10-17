@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 16:29:10 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/15 14:21:28 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/17 14:42:59 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,21 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 // 	ft_lstadd_back(&el2, el1);
 // 	ft_lstadd_back(&el1, el0);
 // 	printf("%s\n", (char *)ft_lstlast(el0)->content);
+// 	return (0);
+// }
+
+// #include <stdio.h>
+// #include <string.h>
+
+// int	main(void)
+// {
+// 	t_list	*l = ft_lstnew(strdup("nyacat"));
+// 	t_list	*n = ft_lstnew(strdup("OK"));
+
+// 	ft_lstadd_back(&l, n);
+// 	if (l->next == n && !strcmp(l->next->content, "OK"))
+// 		printf("OK\n");
+// 	else
+// 		printf("NOK\n");
 // 	return (0);
 // }
