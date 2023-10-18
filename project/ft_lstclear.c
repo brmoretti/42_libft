@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 17:44:21 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/17 15:12:57 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/18 08:05:19 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	t_list	*el;
 	t_list	*next_el;
 
-	if (!lst || !*lst)
+	if (!lst || !*lst || !del)
 		return ;
 	el = *lst;
 	while (el)

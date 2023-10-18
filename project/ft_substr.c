@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 22:24:11 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/14 15:48:26 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/18 07:59:42 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t			i;
 	unsigned int	len_s;
 
+	if (!s)
+		return (NULL);
 	len_s = (unsigned int)ft_strlen(s);
 	if (start >= len_s)
 		len = 0;

@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 19:20:44 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/16 18:29:23 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/18 08:03:16 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ char	**ft_split(char const *s, char c)
 	unsigned int	i;
 	unsigned int	n_tokens;
 
+	if (!s)
+		return (NULL);
 	n_tokens = ft_count_tokens(s, c);
 	tab = ft_calloc((size_t)n_tokens + 1, sizeof(char *));
 	if (!tab)
