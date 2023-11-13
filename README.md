@@ -30,6 +30,10 @@ To get started with the `libft` project, follow these steps:
     ```bash
     make
     ```
+    Alternatively if you want build including bonus functions:
+    ```bash
+    make bonus
+    ```
 
 ## Usage
 
