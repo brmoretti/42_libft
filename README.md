@@ -1,4 +1,4 @@
-# libft Project
+# libft (125/100)
 
 ## Overview
 
