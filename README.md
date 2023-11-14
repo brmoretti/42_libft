@@ -1,4 +1,8 @@
-# libft (125/100)
+# libft
+<p align="center">
+  <img src="https://game.42sp.org.br/static/assets/achievements/libftm.png" alt="Achievement Image"><br>
+    <b>Grade: 125/100</b>
+</p>
 
 ## Overview
 
@@ -8,6 +12,8 @@ The `libft` project at 42 school is a fundamental endeavor where students develo
 
 - [Getting Started](#getting-started)
 - [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Documentation](#documentation)
 
 ## Getting Started
 
@@ -46,3 +52,15 @@ int main() {
     ft_putstr("Hello, libft!\n");
     return 0;
 }
+```
+
+## Project Structure
+
+The project is organized into individual source files, each containing the implementation of a specific function. The `include` folder contains the project header file (`libft.h`) that declares the function prototypes.
+
+The `src` folder contains the source files for each function, and the `build` folder (not included in the repository) is used to store object files during compilation.
+
+## Documentation
+
+Each function in the library is thoroughly documented using Doxygen-style comments. The documentation includes a brief description of the function, information about parameters and return values, and additional details where necessary.
+
