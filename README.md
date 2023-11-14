@@ -48,9 +48,12 @@ After building the library, you can link it to your projects and use the `libft.
 ```c
 #include "libft.h"
 
-int main() {
-    ft_putstr("Hello, libft!\n");
-    return 0;
+int main()
+{
+    int  is_alpha;
+
+    is_alpha = ft_isalpha('a');
+    return (0);
 }
 ```
 
