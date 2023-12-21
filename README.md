@@ -1,4 +1,4 @@
-# 42: libft Including Bonus
+# 42 libft: Including Bonus
 <p align="center">
   <img src="https://game.42sp.org.br/static/assets/achievements/libftm.png" alt="Achievement Image"><br>
 </p>
